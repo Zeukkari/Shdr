@@ -27,5 +27,9 @@ Models =
   'models/suzanne_high.js':
     name: 'Suzanne (high)'
 
+  'models/zeukkari16.js':
+    name: 'Zeukkari'
+
+
 @shdr ||= {}
 @shdr.Models = Models

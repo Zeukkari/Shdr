@@ -5,9 +5,9 @@ class Viewer
 
   constructor: (@dom, @app) ->
     @time = 0.0
-    @rotate = false
+    @rotate = true
     @currentModel = null
-    @rotateRate = 0.005
+    @rotateRate = 0.003
     @renderer = new THREE.WebGLRenderer(antialias: on)
     @canvas = @renderer.domElement
     @dom.appendChild(@canvas)
@@ -17,7 +17,7 @@ class Viewer
     @scene.add(@camera)
     @loader = new THREE.JSONLoader()
     @material = @defaultMaterial()
-    @loadModel('models/suzanne_high.js')
+    @loadModel('models/zeukkari16.js')
     @onResize()
     window.addEventListener('resize', (() => @onResize()), off)
 
@@ -43,7 +43,7 @@ class Viewer
     @renderer.setSize(@dom.clientWidth, @dom.clientHeight)
 
   loadModel: (key) ->
-    @loader.load(key, (geo) => 
+    @loader.load(key, (geo) =>
       @initModel(geo, key)
     )
     @app.ui.showModelLoader()
@@ -72,14 +72,14 @@ class Viewer
 
   defaultMaterial: ->
     @uniforms =
-      time: 
+      time:
         type: 'f'
         value: 0.0
       resolution:
         type: 'v2'
         value: new THREE.Vector2(@dom.clientWidth, @dom.clientHeight)
-    @vs = shdr.Snippets.DefaultVertex
-    @fs = shdr.Snippets.DefaultFragment
+    @vs = shdr.Snippets.TestailuVertex
+    @fs = shdr.Snippets.TestailuFragment
     return new THREE.ShaderMaterial(
       uniforms: @uniforms
       vertexShader: @vs

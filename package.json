@@ -8,8 +8,12 @@
   },
   "dependencies": {
     "argparse": "latest",
-    "uglify-js": "latest",
     "coffee-script": "latest",
-    "http-server": "latest"
+    "http-server": "latest",
+    "node-static": "^0.7.10",
+    "uglify-js": "latest"
+  },
+  "devDependencies": {
+    "zip": "^1.2.0"
   }
 }

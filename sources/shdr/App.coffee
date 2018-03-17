@@ -110,7 +110,7 @@ class App
       if _fs and _vs
         @viewer.updateShader(vs, App.VERTEX)
         @viewer.updateShader(fs, App.FRAGMENT)
-        @editor.getSession().setValue(if @conf.mode is App.VERTEX then vs else fs)        
+        @editor.getSession().setValue(if @conf.mode is App.VERTEX then vs else fs)
         @ui.setMenuMode(App.FRAGMENT)
         @ui.setStatus("Shaders successfully loaded and compiled.",
           shdr.UI.SUCCESS)
@@ -138,7 +138,7 @@ class App
 
   packURL: ->
     try
-      obj = 
+      obj =
         documents: @documents
         model: @viewer.currentModel
       json = JSON.stringify(obj)
@@ -239,21 +239,21 @@ class App
   new: ->
     obj =
       documents: [
-        shdr.Snippets.DefaultFragment
-        shdr.Snippets.DefaultVertex
+        shdr.Snippets.TestailuFragment
+        shdr.Snippets.TestailuVertex
       ]
       name: 'Untitled'
     @initDocuments(obj)
     @ui.setStatus('Editor reset using default shaders.',
       shdr.UI.SUCCESS)
     @ui.clearName('Untitled')
-    loadModel('models/suzanne_high.js')
+    loadModel('models/zeukkari16.js')
 
   newDemo: ->
     obj =
       documents: [
-        shdr.Snippets.DemoFragment
-        shdr.Snippets.DemoVertex
+        shdr.Snippets.TestailuFragment
+        shdr.Snippets.TestailuVertex
       ]
       name: 'Untitled'
     @initDocuments(obj)
